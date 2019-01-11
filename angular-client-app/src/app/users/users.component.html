@@ -1,0 +1,30 @@
+<div class="row">
+    <div class="col-md-12 text-right"> 
+        <button type="button" class="btn btn-sm btn-outline-dark" (click)="logout()">  Logout <i class="fas fa-sign-out-alt"></i> </button> 
+    </div>
+</div>
+
+<h1>Lista de Usuários</h1>
+
+<hr />
+<div class="row">
+    <div class="col-lg-12">
+
+        <table class="table table-borderless">
+
+            <th>Nome</th>
+            <th>Email</th>
+            <th>Detalhes</th>
+            <th> Deletar </th>
+
+            <tr *ngFor="let user of users">
+                <td>{{ user.name }}</td>
+                <td>{{ user.email }}</td>
+                <td><a routerLink="/users/{{ user.id }}" class="item-link" > ver mais </a></td>
+                <td> <span (click)="delete(user.id)" class="btn-delete text-danger"> <i class="fas fa-trash-alt"></i> </span> </td>
+            </tr>
+
+        </table>
+
+    </div>
+</div>

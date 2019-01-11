@@ -1,0 +1,54 @@
+<h4>Crie uma conta!</h4>
+<br />
+<div class="row">
+  <div class="col-md-12">
+      <form action="" method="post" #form="ngForm" (ngSubmit)="signup(form)" novalidate>
+
+        <!-- input name -->
+        <div class="form-group">
+
+          <label for="name">Nome</label>
+          <input type="text" name="name" id="name" [(ngModel)]="user.name" #name="ngModel" class="form-control" 
+            required minlength="3" maxlength="50" />
+
+          <div class="error" *ngIf="form.submitted && name.invalid">
+            <p class="alert alert-danger" *ngIf="name.errors.required"> Este campo é requerido! </p>
+            <p class="alert alert-danger" *ngIf="name.errors.minlength"> Mínimo 3 caracteres! </p>
+            <p class="alert alert-danger" *ngIf="name.errors.maxlength"> Máximo 50 caracteres! </p>
+          </div>
+
+        </div>
+
+        <!-- input email -->
+        <div class="form-group">
+
+          <label for="email">Email</label>
+          <input type="email" name="email" id="email" [(ngModel)]="user.email" #email="ngModel" class="form-control" required email>
+
+          <div class="error" *ngIf="form.submitted && email.invalid">
+            <p class="alert alert-danger" *ngIf="email.errors.required"> Este campo é requerido! </p>
+            <p class="alert alert-danger" *ngIf="email.errors.email"> Email inválido! </p>
+          </div>
+
+        </div>
+
+        <!-- input password -->
+        <div class="form-group">
+
+          <label for="password">Senha</label>
+          <input type="text" name="password" id="password" [(ngModel)]="user.password" #password="ngModel" class="form-control" required minlength="3">
+
+          <div class="error" *ngIf="form.submitted && password.invalid">
+            <p class="alert alert-danger" *ngIf="password.errors.required"> Este campo é requerido! </p>
+            <p class="alert alert-danger" *ngIf="password.errors.minlength"> Mínimo 3 caracteres! </p>
+          </div>
+  
+        </div>
+        
+        <div class="form-group">
+          <button type="submit" class="btn btn-primary btn-sm"> <i class="fas fa-save"></i> Cadastrar </button>
+        </div>
+  
+      </form>
+  </div>
+</div>

@@ -1,0 +1,39 @@
+<h4>Entre com sua conta!</h4>
+<br />
+<div class="row">
+  <div class="col-md-12">
+      <form action="" method="post" #form="ngForm" (ngSubmit)="signin(form)" novalidate>
+
+        <!-- input email -->
+        <div class="form-group">
+
+          <label for="email">Email</label>
+          <input type="email" name="email" id="email" [(ngModel)]="user.email" #email="ngModel" class="form-control" required email>
+
+          <div class="error" *ngIf="form.submitted && email.invalid">
+            <p class="alert alert-danger" *ngIf="email.errors.required"> Este campo é requerido! </p>
+            <p class="alert alert-danger" *ngIf="email.errors.email"> Email inválido! </p>
+          </div>
+
+        </div>
+
+        <!-- input password -->
+        <div class="form-group">
+
+          <label for="password">Senha</label>
+          <input type="text" name="password" id="password" [(ngModel)]="user.password" #password="ngModel" class="form-control" required minlength="3">
+
+          <div class="error" *ngIf="form.submitted && password.invalid">
+            <p class="alert alert-danger" *ngIf="password.errors.required"> Este campo é requerido! </p>
+            <p class="alert alert-danger" *ngIf="password.errors.minlength"> Mínimo 3 caracteres! </p>
+          </div>
+  
+        </div>
+        
+        <div class="form-group">
+          <button type="submit" class="btn btn-primary btn-sm"> Entrar <i class="fas fa-arrow-circle-right"></i> </button>
+        </div>
+  
+      </form>
+  </div>
+</div>

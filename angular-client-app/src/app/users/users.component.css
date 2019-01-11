@@ -1,0 +1,7 @@
+table, th, tr, td {
+    text-align: center;
+}
+
+.btn-delete {
+    cursor: pointer;
+}
