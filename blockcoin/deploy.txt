@@ -1,0 +1,39 @@
+Pré Requisitos
+
+	Git
+
+	Ter uma conta no Heroku: https://www.heroku.com/
+
+	Instalar o Heroku Cli
+
+Acesse o diretório do Projeto.
+
+	$ git init
+	
+	$ git add .
+	
+	$ git commit -m "commit"
+
+Buildpack: https://github.com/heroku/heroku-buildpack-go
+
+	$ heroku create -b https://github.com/heroku/heroku-buildpack-go.git
+
+Intale o glide:
+
+	$ sudo apt-get install glide
+
+	$ glide create
+
+	(Y) (N) => (N)
+
+	$ glide install
+
+	$ git status
+
+	$ git add glide.lock glide.yaml
+
+	$ git commit -m "add glide"
+	
+	$ git push heroku master
+
+	
