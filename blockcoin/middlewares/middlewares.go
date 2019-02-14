@@ -5,6 +5,7 @@ import (
   "strings"
   "fmt"
   "go-api/config"
+  "go-api/utils"
   jwt "github.com/dgrijalva/jwt-go"
 )
 
@@ -23,9 +24,8 @@ func IsAuth(handler func(http.ResponseWriter, *http.Request)) http.HandlerFunc {
           }
           return secretkey, nil
         })
-        if err != nil {
-          w.WriteHeader(http.StatusUnauthorized)
-          w.Write([]byte("Unauthorized"))
+        if err != nil {         
+          utils.ErrorResponse(w, err, http.StatusUnauthorized)
           return
         }
         if token.Valid {
@@ -33,6 +33,7 @@ func IsAuth(handler func(http.ResponseWriter, *http.Request)) http.HandlerFunc {
         }
       }
     }
+    w.WriteHeader(http.StatusUnauthorized)
     fmt.Fprintf(w, "Unauthorized")
   })
 }
