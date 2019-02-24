@@ -1,0 +1,12 @@
+@font-face {
+    font-family: 'logo';
+    src: url('/assets/fonts/Gentona-Free-Demo/Gentona\ Free\ Demo/Gentona.otf')
+}
+
+.container {
+    font-family: 'Montserrat', sans-serif;
+}
+
+.logo {
+    font-family: 'logo';
+}

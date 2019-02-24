@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Home</title>
+  <link rel="stylesheet" href="/assets/css/bootstrap.css">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+
+</head>
+<body>
+
+  <div class="container">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark rounded">
+        <a class="navbar-brand logo text-info" href="#">Go WebApp</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="#"> <i class="fas fa-home"></i> Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#"> <i class="fas fa-info-circle"></i> Sobre</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <i class="fas fa-at"></i> Contatos
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="#"> <i class="fab fa-github-alt"></i> GitHub</a>
+                <a class="dropdown-item" href="#"> <i class="far fa-envelope"></i> Email</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#"><i class="fab fa-twitter"></i> Twitter</a>
+              </div>
+            </li>
+          </ul>
+          <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-info my-2 my-sm-0" type="submit">Search <i class="fas fa-search"></i> </button>
+          </form>
+        </div>
+      </nav>
+      <hr />
+      <div class="row">
+        <div class="col-md-12">
+          <p class="text-right">
+            <a href="/register" class="btn btn-sm btn-primary">Cadastro <i class="far fa-user-circle"></i> </a>
+            <a href="/login" class="btn btn-sm btn-outline-primary">Login <i class="fas fa-sign-in-alt"></i> </a>
+          </p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <form action="" method="POST">
+            <div class="form-group">
+                <input type="text" name="search" id="search" class="form-control" placeholder="Pesquisar produto específico"/>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-12">
+          <div id="data-table">
+            <p class="text-center"> Digite no campo de busca para encontrar o  que deseja!</p>
+          </div>
+        </div>
+      </div>
+  </div> <!-- end container-->
+  <script src="/assets/js/jquery.js"></script>
+  <script src="/assets/js/bootstrap.js"></script>
+  <script>
+    var ajaxSearch = (search) => {
+      $.ajax({
+        type: 'POST',
+        dataType: 'html',
+        url: '/',
+        beforeSend: () => {
+          $("#data-table").html("Buscando...");
+        },
+        data: { search: search },
+        success: (r) => {
+          $("#data-table").html(r);
+        }
+      });
+    };
+
+    $("#search").keyup(() => {
+      ajaxSearch($("#search").val());
+    });
+  </script>
+</body>
+</html>

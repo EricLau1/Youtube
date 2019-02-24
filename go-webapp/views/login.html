@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Login</title>
+  <link rel="stylesheet" href="/assets/css/bootstrap.css">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+
+</head>
+<body>
+
+  <div class="container bg-light">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand logo text-info" href="/">Go WebApp</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="/">  <i class="fas fa-home"></i> Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#"> <i class="fas fa-info-circle"></i> Sobre</a>
+            </li>
+          </ul>
+          <div class="form-inline my-2 my-lg-0">
+            <a href="/register" class="btn btn-sm btn-outline-info">Cadastro <i class="far fa-user-circle"></i> </a>
+          </div>
+        </div>
+      </nav>
+
+      <hr />
+      {{ if (ne .Alert.Message "") }}
+        <p class="alert alert-{{ .Alert.Type }}"> {{ .Alert.Message }} </p>
+      {{ end }}
+      <div class="row">
+        <div class="col-md-12">
+            <h3 class="logo" > Login </h3>
+            <br class="my-4">
+            <form action="/login" method="POST">
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="text" name="email" id="email" class="form-control" placeholder="Informe seu email"/>
+                </div>
+                <div class="form-group">
+                    <label for="password">Senha</label>
+                    <input type="password" name="password" id="password" class="form-control" placeholder="Informe a senha"/>
+                </div>
+                <button type="submit" class="btn btn-outline-primary">Entrar <i class="fas fa-sign-in-alt"></i> </button>
+            </form>
+        </div>
+      </div>
+  </div> <!-- end container-->
+  <script src="/assets/js/jquery.js"></script>
+  <script src="/assets/js/bootstrap.js"></script>
+</body>
+</html>

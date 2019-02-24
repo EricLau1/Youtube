@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Painel de Controle</title>
+  <link rel="stylesheet" href="/assets/css/bootstrap.css">
+  <link rel="stylesheet" href="/assets/css/offcanvas.css">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+  <style>
+    .bd-placeholder-img {
+      font-size: 1.125rem;
+      text-anchor: middle;
+    }
+
+    @media (min-width: 768px) {
+      .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+      }
+    }
+  </style> 
+</head>
+<body class="bg-light">
+    <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark">
+  <a class="navbar-brand mr-auto mr-lg-4 logo text-info" href="/">Go WebApp</a>
+  <button class="navbar-toggler p-0 border-0" type="button" data-toggle="offcanvas">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="navbar-collapse offcanvas-collapse" id="navbarsExampleDefault">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="/admin">
+          <i class="fab fa-dashcube"></i> Dashboard <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">
+            <i class="fas fa-user-edit"></i> Minha conta</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">
+            <i class="fas fa-lock"></i> Segurança</a>
+      </li>
+    </ul>
+    <div class="form-inline my-2 my-lg-0">
+      <a href="/logout" class="btn btn-sm btn-outline-warning">Sair <i class="fas fa-sign-out-alt"></i></a>
+    </div>
+  </div>
+</nav>
+
+<div class="nav-scroller bg-white shadow-sm">
+  <nav class="nav nav-underline">
+    <a class="nav-link active" href="/admin">
+      <i class="fab fa-dashcube"></i> Dashboard</a>
+    <a class="nav-link" href="/products">
+      Produtos    
+      <span class="badge badge-pill bg-light align-text-bottom">{{ .AllProducts }}</span>
+    </a>
+    <a class="nav-link" href="/users">
+      Usuários
+      <span class="badge badge-pill bg-light align-text-bottom">{{ .AllUsers }}</span>
+    </a>
+  </nav>
+</div>
+
+<main role="main" class="container">
+  <div class="d-flex align-items-center p-3 my-3 text-white-50 bg-purple rounded shadow-sm">
+    <div class="lh-100">
+      <h6 class="mb-0 text-white lh-100">Bootstrap</h6>
+      <small>Since 2019</small>
+    </div>
+  </div>
+
+  <div class="my-3 p-3 bg-white rounded shadow-sm">
+    <h6 class="border-bottom border-gray pb-2 mb-0">Últimos updates</h6>
+    <div class="media text-muted pt-3">
+      {{ if (ne .LastProduct.Name "") }}
+      <svg class="bd-placeholder-img mr-2 rounded" width="32" height="32" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 32x32"><title>Placeholder</title><rect fill="#007bff" width="100%" height="100%"/><text fill="#007bff" dy=".3em" x="50%" y="50%">32x32</text></svg>
+      <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+        <strong class="d-block text-gray-dark">Último produto adicionado</strong>
+        {{ .LastProduct.Name }}
+      </p>
+      {{ end }}
+    </div>
+    <div class="media text-muted pt-3">
+      {{ if (ne .LastUser.Email "") }}
+      <svg class="bd-placeholder-img mr-2 rounded" width="32" height="32" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 32x32"><title>Placeholder</title><rect fill="#e83e8c" width="100%" height="100%"/><text fill="#e83e8c" dy=".3em" x="50%" y="50%">32x32</text></svg>
+      <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+        <strong class="d-block text-gray-dark">Último usuário cadastrado</strong>
+        {{ .LastUser.Email }}
+      </p>
+      {{ end }}
+    </div>
+    <small class="d-block text-right mt-3">
+      <a href="#">All updates</a>
+    </small>
+  </div>
+
+</main>
+    
+    <script src="/assets/js/jquery.js"></script>
+    <script src="/assets/js/bootstrap.js"></script>
+    <script src="/assets/js/offcanvas.js"></script>
+</body>
+</html>
