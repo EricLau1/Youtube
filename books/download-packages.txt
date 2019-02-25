@@ -1,0 +1,11 @@
+https://github.com/gorilla/mux
+
+    go get -u github.com/gorilla/mux
+
+http://gorm.io/
+
+    go get -u github.com/jinzhu/gorm
+
+MySQL Connection:
+
+http://gorm.io/docs/connecting_to_the_database.html
