@@ -1,0 +1,155 @@
+body {
+    padding: 0;
+    margin: 0;
+    outline: none;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+    background: rgb(30, 30, 37);
+    color: #74FF33;
+}
+
+.container {
+    display: flex;
+    width: 700px;
+    height: 100%;
+    flex-direction: column;
+    margin: 0 auto;
+    padding-bottom: 50px;
+}
+
+.container .main-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container .menu {
+    display: flex;
+    justify-content: space-between;
+}
+
+.container .menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.container .menu ul li {
+    display: inline;
+    margin: 0px 5px;
+}
+
+.container .menu ul li a {
+    color: #fff;
+}
+
+.container .form-default {
+    display: flex;
+    flex-direction: column;
+}
+
+.container .form-default div{
+    display: flex;
+    flex-direction: row;
+    margin: 10px 0;
+    align-items: center;
+}
+
+.container .form-default div label {
+    flex: 20%;
+}
+
+.container .form-default div input {
+    flex: 80%;
+    height: 30px;
+    margin-left: 15px;
+    padding: 0px 10px;
+}
+
+.container .form-default button {
+    margin-top: 10px;
+    height: 40px;
+    cursor: pointer;
+}
+
+.container .profile {
+    margin-top: 25px;
+    border-top: 1px solid #74FF33;
+    padding: 10px;
+    justify-content: center;
+}
+
+.container .profile .avatar {
+    display: flex;
+    align-items: center;
+}
+
+.container .profile .avatar .image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #cecece;
+    width: 150px;
+    height: 150px;
+    color: #fff;
+    padding: 10px;
+}
+
+.container .profile .info {
+    display: flex;
+    color: #2AFB9C;
+    justify-content: center;
+    align-items: center;
+}
+
+.container .message {
+    color: #FB3A2A;
+    text-align: center;
+}
+
+.container .feedbacks {
+    display: flex;
+    flex-direction: column;
+}
+
+.container .form-feedback {
+    margin-top: 20px;
+    padding: 20px;
+    border-top: 1px solid #ccc;
+}
+
+.container .form-feedback form textarea {
+    resize: none;
+}
+
+.container .form-feedback form label {
+    color: #F5FB2A;
+    margin-bottom: 5px;
+}
+
+.container .form-feedback form div {
+    border-top: 1px solid #ccc;
+}
+
+.container .feedback-users {
+    display: flex;
+    padding: 0 10px;
+    align-items: center;
+    margin-top: 3px;
+}
+
+.container .feedback-users p {
+    flex: 100%;
+    color: #fff;
+}
+
+.container .feedback-users p span {
+    color: #FFA61C;
+    font-weight: bolder;
+    margin-left: 6px;
+}
+
+.container .feedback-users div img {
+    border-radius: 50%;
+}
+ 
