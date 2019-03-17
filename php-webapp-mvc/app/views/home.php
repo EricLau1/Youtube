@@ -16,11 +16,12 @@
             <ul>
                 <li><a href="/home">Home</a></li>
             </ul>
-            <ul>
-                <li><a href="/create-account">Criar conta</a></li>
+            <ul>  
                 <?php if(!isAuth()): ?>
+                    <li><a href="/create-account">Criar conta</a></li>
                     <li><a href="/login">Logar</a></li>
                 <?php else: ?>
+                    <li><a href="/admin">Minha conta</a></li>
                     <li><a href="/logout">Log Out</a></li>
                 <?php endif; ?>
             </ul>
@@ -41,9 +42,7 @@
             <?php if(count($feedbacks) > 0): ?>
                 <?php foreach($feedbacks as $f): ?>
                     <div class="feedback-users">
-                        <div>
-                            <img src="data:image/jpeg;base64,<?= $f['avatar'] ?>" width="50px" height="50px" alt="avatar do usuário" />
-                        </div>
+                        <?= ($f['avatar'])? '<div><img src="data:image/jpeg;base64,'.$f["avatar"] .'" width="50px" height="50px" alt="avatar do usuário" /></div>': '' ?>
                         <p><span><?= $f['nickname'] ?>, escreveu:</span> <?= $f['comment']; ?></p>
                     </div>
                 <?php endforeach; ?>

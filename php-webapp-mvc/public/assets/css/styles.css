@@ -98,8 +98,17 @@ body {
 .container .profile .info {
     display: flex;
     color: #2AFB9C;
-    justify-content: center;
-    align-items: center;
+    margin-top: 20px;
+    border-bottom: 1px solid silver;
+}
+
+.container .profile .info span {
+    font-weight: bold;
+}
+
+.container .profile .info small {
+    font-weight: normal;
+    color: silver;
 }
 
 .container .message {
@@ -153,3 +162,29 @@ body {
     border-radius: 50%;
 }
  
+.container .my-comments {
+    margin-top: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+.container .my-comments div {
+    display: flex;
+    align-items: center;
+
+}
+
+.container .my-comments div p {
+    color: #fff;
+    font-size: 12px;
+}
+
+.container .my-comments div span {
+    color: #FFA61C;
+    font-weight: bolder;
+    margin-left: 6px;
+}
+
+.container .my-comments div img {
+    border-radius: 50%;
+}

@@ -31,8 +31,8 @@
 
                 <div class="image"> 
      
-                    <?php if(!empty($avatar['image'])): ?>
-                        <img src="data:image/jpeg;base64,<?= $avatar['image'] ?>" width="150px" height="150px"  alt="meu-avatar"/>
+                    <?php if(!empty($userInfo['avatar'])): ?>
+                        <img src="data:image/jpeg;base64,<?= $userInfo['avatar'] ?>" width="150px" height="150px"  alt="meu-avatar"/>
                     <?php else: ?>
                         Colocar uma imagem
                     <?php endif; ?>
@@ -45,8 +45,19 @@
                 </div>
             </div>
             <div class="info">
-                <h3><?= $user['nickname'] ?>, <?= $user['email'] ?></h3>
+                <span><?= $userInfo['nickname'] ?>, <small><?= $userInfo['email'] ?></small></span>
             </div>
+            <?php if(count($feedbacks) > 0): ?>
+            <h5>Meus comentários</h5>
+            <div class="my-comments">
+                <?php foreach($feedbacks as $feedback): ?>
+                    <div>
+                        <?= ($feedback['avatar'])? '<div><img src="data:image/jpeg;base64,'.$feedback["avatar"] .'" width="30px" height="30px" alt="avatar do usuário" /></div>': '' ?>
+                        <p><span><?= $feedback['nickname'] ?>, escreveu:</span> <?= $feedback['comment']; ?></p>    
+                    </div>
+                <?php endforeach;?>
+            </div>
+            <?php endif;?>
         </div>
 
     </div>
