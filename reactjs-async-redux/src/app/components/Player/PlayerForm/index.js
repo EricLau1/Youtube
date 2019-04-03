@@ -12,8 +12,7 @@ class PlayerForm extends React.Component {
                     <label>Nickname: </label>
                     <input type="text" onChange={e => this.props.model.nickname = e.target.value } required /> 
                 </div>
-                <button type="button" value={this.props.model.nickname}
-                onClick={e => this.props.createPlayer(this.props.model)}> Salvar </button>
+                <button type="button" onClick={e => this.props.createPlayer(this.props.model)}> Salvar </button>
             </form>
         );
     }
