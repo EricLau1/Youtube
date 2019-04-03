@@ -54,7 +54,7 @@ func putPlayer(c echo.Context) error {
   id, _ := strconv.Atoi(c.Param("id")) 
   for i, _ := range players {
     if players[i].Id == id {
-      players[i].Online = false
+      players[i].Online = !players[i].Online
       return c.JSON(http.StatusOK, players)
     }
   }

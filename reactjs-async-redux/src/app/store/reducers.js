@@ -4,6 +4,7 @@ const INITIAL_STATE = {
     data: [],
     loading: false,
     error: false,
+    model: { id: 0, nickname: '', online: true },
 };
 
 const reducer = (state = INITIAL_STATE, action ) => {
@@ -15,12 +16,28 @@ const reducer = (state = INITIAL_STATE, action ) => {
             };
         case ActionTypes.FETCH_PLAYERS_SUCCESS:
             return {
+                ...state,
                 data: action.payload,
                 loading: false,
                 error: false,
             }
         case ActionTypes.FETCH_PLAYER_DISCONNECT:
             return {
+                ...state,
+                data: action.payload,
+                loading: false,
+                error: false,
+            }
+        case ActionTypes.FETCH_PLAYER_CREATE:
+            return {
+                model: { id: 0, nickname: '', online: true },
+                data: action.payload,
+                loading: false,
+                error: false,
+            }
+        case ActionTypes.FETCH_PLAYER_DESTROY:
+            return {
+                ...state,
                 data: action.payload,
                 loading: false,
                 error: false,
