@@ -1,0 +1,5 @@
+# Run
+
+```bash
+    npm start
+```
