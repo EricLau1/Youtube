@@ -29,13 +29,13 @@ var upgrader = websocket.Upgrader{
 func (c *Chat) Handler(w http.ResponseWriter, r *http.Request) {
 	conn, err := upgrader.Upgrade(w, r, nil)
 	if err != nil {
-		log.Fatal("Error on websocket connection:", err.Error)
+		log.Fatalln("Error on websocket connection:", err.Error())
 	}
 
 	keys := r.URL.Query()
 	username := keys.Get("username")
 	if strings.TrimSpace(username) == "" {
-		username = fmt.Sprintf("anom-%d", utils.GetRandomI64())
+		username = fmt.Sprintf("anon-%d", utils.GetRandomI64())
 	}
 
 	user := &User{
@@ -90,7 +90,7 @@ func (c *Chat) disconnect(user *User) {
 
 func Start(port string) {
 
-	log.Printf("Chat listening on http://localhost:%s\n", port)
+	log.Printf("Chat listening on http://localhost%s\n", port)
 
 	c := &Chat{
 		users:    make(map[string]*User),
@@ -100,7 +100,7 @@ func Start(port string) {
 	}
 
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-		w.Write([]byte("Welcome to Go Webchat!"))
+		w.Write([]byte("Welcome to Go WebChat!"))
 	})
 
 	http.HandleFunc("/chat", c.Handler)
